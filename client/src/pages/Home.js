@@ -1,6 +1,8 @@
 import React from 'react';
 import FriendList from '../components/FriendList';
+import ThoughtForm from '../components/ThoughtForm';
 import ThoughtList from '../components/ThoughtList';
+
 
 import Auth from '../utils/auth';
 // allows us to make requests to GraphQL server we connected to and made available to app using ApolloProvder component on App.js
@@ -24,6 +26,11 @@ const Home = () => {
   return (
     <main>
       <div className='flex-row justify-space-between'>
+        {loggedIn && (
+          <div className='col-12 mb-3'>
+            <ThoughtForm />
+          </div>
+        )}
         <div className={`col-12 mb-3 ${loggedIn && 'col-lg-8'}`}>
           {loading ? (
             <div>Loading...</div>
